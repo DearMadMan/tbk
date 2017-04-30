@@ -18,11 +18,13 @@ class SpreadProvider extends AbstractProvider
     {
         $this->setMethod('spread');
 
-        if (is_array($params)) {
-            $params = json_encode($params);
+        if (is_array($params) && ! isset($params['requests'])) {
+            $params = ['requests' => json_encode($params)];
         }
 
-        return $this->getResponse($params);
+        return $this->httpClient->post($this->getRequestURL(), [
+            'form_params' => $this->getQueryBody($params)
+        ]);
     }
 }
 
