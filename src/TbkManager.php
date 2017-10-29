@@ -3,8 +3,11 @@ namespace Dearmadman\Tbk;
 
 use Dearmadman\Tbk\Contracts\Factory;
 use Dearmadman\Tbk\Providers\AtbProvider;
+use Dearmadman\Tbk\Providers\ContentProvider;
 use Dearmadman\Tbk\Providers\CooperateProvider;
+use Dearmadman\Tbk\Providers\CouponProvider;
 use Dearmadman\Tbk\Providers\DataProvider;
+use Dearmadman\Tbk\Providers\DgProvider;
 use Dearmadman\Tbk\Providers\ItemProvider;
 use Dearmadman\Tbk\Providers\ItemidProvider;
 use Dearmadman\Tbk\Providers\JuProvider;
@@ -12,6 +15,7 @@ use Dearmadman\Tbk\Providers\OrderProvider;
 use Dearmadman\Tbk\Providers\RebateProvider;
 use Dearmadman\Tbk\Providers\ShopProvider;
 use Dearmadman\Tbk\Providers\SpreadProvider;
+use Dearmadman\Tbk\Providers\TpwdProvider;
 use Dearmadman\Tbk\Providers\TravelProvider;
 use Dearmadman\Tbk\Providers\UatmProvider;
 
@@ -72,18 +76,22 @@ class TbkManager implements Factory
     public function load($driver)
     {
         $drivers = [
-            'item' => ItemProvider::class,
-            'atb' => AtbProvider::class,
+            'item'      => ItemProvider::class,
+            'atb'       => AtbProvider::class,
             'Cooperate' => CooperateProvider::class,
-            'data' => DataProvider::class,
-            'itemid' => ItemidProvider::class,
-            'ju' => JuProvider::class,
-            'order' => OrderProvider::class,
-            'rebate' => RebateProvider::class,
-            'shop' => ShopProvider::class,
-            'spread' => SpreadProvider::class,
-            'travel' => TravelProvider::class,
-            'uatm' => UatmProvider::class,
+            'data'      => DataProvider::class,
+            'itemid'    => ItemidProvider::class,
+            'ju'        => JuProvider::class,
+            'order'     => OrderProvider::class,
+            'rebate'    => RebateProvider::class,
+            'shop'      => ShopProvider::class,
+            'spread'    => SpreadProvider::class,
+            'travel'    => TravelProvider::class,
+            'uatm'      => UatmProvider::class,
+            'dg'        => DgProvider::class,
+            'coupon'    => CouponProvider::class,
+            'tpwd'      => TpwdProvider::class,
+            'content'   => ContentProvider::class,
         ];
         if (array_key_exists($driver, $drivers)) {
             return $this->instances[$driver] = new $drivers[$driver]($this->config, $this->httpClient);

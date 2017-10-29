@@ -38,6 +38,11 @@ trait MethodSetter
             'rebate.auth' => 'taobao.tbk.rebate.auth.get',
             'travel.item' => 'taobao.tbk.travel.item.get',
 
+            'dg' => 'taobao.tbk.dg.item.coupon.get',
+            'coupon' => 'taobao.tbk.coupon.get',
+            'tpwd.create' => 'taobao.tbk.tpwd.create',
+            'content' => 'taobao.tbk.content.get',
+
             'wireless.share.tpwd' => 'taobao.wireless.share.tpwd.create'
 
         ];

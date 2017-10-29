@@ -35,6 +35,10 @@ trait ParamChecker
             'rebate.order' => ['start_time', 'span'],
             'rebate.auth' => ['params', 'type'],
             'travel.item' => ['dest_city', 'channel', 'adzone_id'],
+            'dg' => ['adzone_id'],
+            'coupon' => ['me'],
+            'tpwd.create' => ['text', 'url'],
+            'content' => ['adzone_id'],
         ];
 
         foreach ($mandatoryParameters[$type] as $value) {
